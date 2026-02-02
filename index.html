@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>For Akanksha ❤️</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<style>
+body {
+    margin: 0;
+    height: 100vh;
+    font-family: 'Arial', sans-serif;
+    background:
+      linear-gradient(rgba(0,0,0,0.55), rgba(0,0,0,0.75)),
+      url("");
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    overflow: hidden;
+}
+
+.box {
+    background: rgba(0,0,0,0.45);
+    padding: 30px;
+    border-radius: 22px;
+    width: 90%;
+    max-width: 420px;
+    text-align: center;
+}
+
+h1 {
+    font-size: 26px;
+    line-height: 1.4;
+}
+
+button {
+    margin-top: 20px;
+    background: #ff2e63;
+    border: none;
+    padding: 15px 45px;
+    font-size: 22px;
+    color: white;
+    border-radius: 50px;
+    cursor: pointer;
+}
+
+button:hover {
+    background: #ff1744;
+}
+
+.heart {
+    position: fixed;
+    bottom: -20px;
+    font-size: 24px;
+    animation: floatUp 4s linear infinite;
+}
+
+@keyframes floatUp {
+    0% { transform: translateY(0); opacity: 1; }
+    100% { transform: translateY(-110vh); opacity: 0; }
+}
+</style>
+</head>
+
+<body>
+
+<div class="box" id="content">
+    <h1>Akanksha ❤️<br>Will you be my Valentine?</h1>
+    <button onclick="sayYes()">YES 💖</button>
+</div>
+
+<script>
+function sayYes() {
+    document.getElementById("content").innerHTML = `
+        <h1>
+        Yes my man 💕<br>
+        I would like to be your Valentine ❤️<br><br>
+        I love you so much 😘
+        </h1>
+    `;
+
+    // Heart & celebration animation
+    setInterval(createHeart, 250);
+
+    // Auto WhatsApp message
+    setTimeout(() => {
+        window.location.href =
+        "https://wa.me/?text=Yes%20my%20man%20💕%20I%20would%20like%20to%20be%20your%20Valentine%20❤️%20I%20love%20you%20so%20much%20😘";
+    }, 3500);
+}
+
+function createHeart() {
+    const heart = document.createElement("div");
+    heart.className = "heart";
+    heart.innerHTML = ["❤️","💖","💘","🎉","🥰"][Math.floor(Math.random()*5)];
+    heart.style.left = Math.random() * 100 + "vw";
+    heart.style.fontSize = (20 + Math.random()*25) + "px";
+    document.body.appendChild(heart);
+    setTimeout(() => heart.remove(), 4000);
+}
+</script>
+
+</body>
+</html>
